@@ -52,16 +52,16 @@ $pack_cmd = "choco pack $tempDir/chef-workstation.nuspec --version " + $releaseR
 $publish_cmd = "choco push chef-workstation." + $releaseRecord.version + ".nupkg --timeout 600"
 
 try {
-    if($env:BUILDKITE_BUILD_CREATOR -eq $valid_build_creator) {
+    # if($env:BUILDKITE_BUILD_CREATOR -eq $valid_build_creator) {
         Invoke-Expression $pack_cmd
         if ($LASTEXITCODE -ne 0) { throw "unable to choco pack" }
         Invoke-Expression "$publish_cmd --key $env:CHOCO_API_KEY"
         if ($LASTEXITCODE -ne 0) { throw "unable to publish Chocolatey package" }
-    } else {
-        Write-Host "--- NOT PUBLISHING: Build triggered by $env:BUILDKITE_BUILD_CREATOR and not $valid_build_creator"
-        Write-Host $pack_cmd
-        Write-Host $publish_cmd " --key <elided ChocoApiKey>"
-    }
+    # } else {
+    #     Write-Host "--- NOT PUBLISHING: Build triggered by $env:BUILDKITE_BUILD_CREATOR and not $valid_build_creator"
+    #     Write-Host $pack_cmd
+    #     Write-Host $publish_cmd " --key <elided ChocoApiKey>"
+    # }
 } finally {
     Remove-Item $tempDir -Recurse -Force
 }

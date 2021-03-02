@@ -257,14 +257,14 @@ GEM
     mixlib-cli (2.1.8)
     mixlib-config (3.0.9)
       tomlrb
-    mixlib-install (3.12.5)
+    mixlib-install (3.12.7)
       mixlib-shellout
       mixlib-versioning
       thor
     mixlib-log (3.0.9)
-    mixlib-shellout (3.2.2)
+    mixlib-shellout (3.2.5)
       chef-utils
-    mixlib-shellout (3.2.2-universal-mingw32)
+    mixlib-shellout (3.2.5-universal-mingw32)
       chef-utils
       ffi-win32-extensions (~> 1.0.3)
       win32-process (~> 0.9)
@@ -354,8 +354,9 @@ GEM
     strings-ansi (0.2.0)
     structured_warnings (0.4.0)
     syslog-logger (1.6.8)
-    test-kitchen (2.10.0)
+    test-kitchen (2.11.0)
       bcrypt_pbkdf (~> 1.0)
+      chef-utils (>= 16.4.35)
       ed25519 (~> 1.2)
       license-acceptance (>= 1.0.11, < 3.0)
       mixlib-install (~> 3.6)
